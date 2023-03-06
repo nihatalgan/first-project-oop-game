@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#board {
+  background-color: green;
+  height: 100vh;
+  position: relative;
+}
+
+#player {
+  background-color: fuchsia;
+  position: absolute;
+  bottom: 45vh;
+}
+
+.obstacle {
+  background-color: orange;
+  position: absolute;
+  /* left: 100vh; */
+}
