@@ -21,8 +21,8 @@ class Game {
     setInterval(() => {
       this.obstaclesArr.forEach((obstacleInstance) => {
         obstacleInstance.moveLeft(); //move
-        this.detectCollision(obstacleInstance); //detect collision between player and current obstacle
         this.removeObstacleIfOutside(obstacleInstance); //check if we need to remove current obstacle
+        this.detectCollision(obstacleInstance); //detect collision between player and current obstacle
       });
     }, 100);
     setInterval(() => {
@@ -70,20 +70,26 @@ class Game {
       window.location.href = "./gameover.html";
     }
   }
-  detectbulletCollision(bulletInstance) {
-    if (
-      this.bulletInstance.positionX <
-        obstacleInstance.positionX + obstacleInstance.width &&
-      this.bulletInstance.positionX + this.bulletInstance.width >
-        obstacleInstance.positionX &&
-      this.bulletInstance.positionY <
-        obstacleInstance.positionY + obstacleInstance.height &&
-      this.bulletInstance.height + this.bulletInstance.positionY >
-        obstacleInstance.positionY
-    ) {
-      //console.log("game over my fren!");
-      window.location.href = "./gameover.html";
-    }
+  detectbulletCollision(bulletInstance, bulletIndex) {
+    this.obstaclesArr.forEach((obstacleInstance, obstacleIndex) => {
+      if (
+        bulletInstance.positionX <
+          obstacleInstance.positionX + obstacleInstance.width &&
+        bulletInstance.positionX + bulletInstance.width >
+          obstacleInstance.positionX &&
+        bulletInstance.positionY <
+          obstacleInstance.positionY + obstacleInstance.height &&
+        bulletInstance.height + bulletInstance.positionY >
+          obstacleInstance.positionY
+      ) {
+        //console.log("game over my fren!");
+        // window.location.href = "./gameover.html";
+        obstacleInstance.obstacleElm.remove(); //remove from the dom
+        this.obstaclesArr.splice(obstacleIndex, 1); // remove from the array
+        bulletInstance.bulletElm.remove(); //remove from the dom
+        this.bulletsArr.splice(bulletIndex, 1); // remove from the array
+      }
+    });
   }
 
   removeObstacleIfOutside(obstacleInstance) {
