@@ -4,7 +4,7 @@ body {
 }
 
 #board {
-  background-color: green;
+  background: linear-gradient(to bottom, black, grey, white, grey, black);
   height: 100vh;
   position: relative;
 }
@@ -18,5 +18,8 @@ body {
 .obstacle {
   background-color: orange;
   position: absolute;
-  /* left: 100vh; */
+}
+.bullet {
+  background-color: purple;
+  position: absolute;
 }
