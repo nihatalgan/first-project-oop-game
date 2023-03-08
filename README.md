@@ -15,9 +15,28 @@
 [ ] Game over page<br>
 [ ] Add music<br>
 [x] Shooting property<br>
-[ ] Shooting sound effect
-[x] Bullet class
-[x] Bullet obstacle collision
-[x] Bullet and obstacle removed from DOM & board when collision
+[ ] Shooting sound effect<br>
+[x] Bullet class<br>
+[x] Bullet obstacle collision<br>
+[x] Bullet and obstacle removed from DOM & board when collision<br>
 [ ] Show shooting damage<br>
 [ ] Show Obstacles healt<br>
+
+[ ] Fix: when a bullet goes outside, scrollbars shown (hint: overflow: hidden)
+
+---
+
+when user dies...
+--> localStorage.setItem("maxScore", 320);
+
+in gameover.js...
+--> const amount = localStorage.getItem("maxScore")
+
+---
+
+Suggestions:
+
+- fix any existing bug
+- display scores in gameover
+- CSS / design
+- (bonus) obstacles that can receive multiple hits

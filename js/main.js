@@ -9,6 +9,7 @@ class Game {
   }
   start() {
     this.player = new Player();
+    this.score = new Score();
     this.attachEventListeners();
 
     //create new obstacles
@@ -70,6 +71,7 @@ class Game {
       window.location.href = "./gameover.html";
     }
   }
+
   detectbulletCollision(bulletInstance, bulletIndex) {
     this.obstaclesArr.forEach((obstacleInstance, obstacleIndex) => {
       if (
@@ -88,6 +90,8 @@ class Game {
         this.obstaclesArr.splice(obstacleIndex, 1); // remove from the array
         bulletInstance.bulletElm.remove(); //remove from the dom
         this.bulletsArr.splice(bulletIndex, 1); // remove from the array
+        this.score.hitScore();
+        localStorage.setItem("maxscore", this.score.scr);
       }
     });
   }
@@ -105,6 +109,7 @@ class Game {
     }
   }
 }
+
 class Bullet {
   constructor(plyX, plyY) {
     this.width = 2;
@@ -214,6 +219,38 @@ class Player {
       this.positionY--;
     }
     this.playerElm.style.bottom = this.positionY + "vh";
+  }
+}
+
+class Score {
+  constructor() {
+    this.width = 10;
+    this.height = 3;
+    this.positionX = 85;
+    this.positionY = 90;
+    this.scr = 0;
+    this.createScoreDomElement();
+  }
+  createScoreDomElement() {
+    // step1: create the element
+    this.scoreElm = document.createElement("div");
+
+    // step2: add content (ex. innerText) and/or modify attributes
+    this.scoreElm.className = "score";
+    this.scoreElm.style.width = this.width + "vw";
+    this.scoreElm.style.height = this.height + "vh";
+    this.scoreElm.style.bottom = this.positionY + "vh";
+    this.scoreElm.style.left = this.positionX + "vw";
+    this.scoreElm.style.fontSize = "x-large";
+    this.scoreElm.innerHTML = "SCORE: " + this.scr;
+
+    //step3: append to the dom
+    const boardElm = document.getElementById("board");
+    boardElm.appendChild(this.scoreElm);
+  }
+  hitScore() {
+    this.scr += 10;
+    this.scoreElm.innerHTML = "SCORE: " + this.scr;
   }
 }
 

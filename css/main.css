@@ -23,3 +23,9 @@ body {
   background-color: purple;
   position: absolute;
 }
+.score {
+  /* background-color: yellow; */
+  position: absolute;
+  font-size: 44 px;
+  color: yellow;
+}
