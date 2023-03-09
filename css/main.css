@@ -4,13 +4,15 @@ body {
 }
 
 #board {
-  background: linear-gradient(to bottom, black, grey, white, grey, black);
+  /* background: linear-gradient(to bottom, black, grey, white, grey, black); */
   height: 100vh;
   position: relative;
+  overflow: hidden;
+  background-image: url("../img/background.jpg");
 }
 
 #player {
-  background-color: fuchsia;
+  /* background-color: fuchsia; */
   position: absolute;
   bottom: 45vh;
 }
@@ -20,12 +22,10 @@ body {
   position: absolute;
 }
 .bullet {
-  background-color: purple;
+  background-color: whitesmoke;
   position: absolute;
 }
 .score {
-  /* background-color: yellow; */
   position: absolute;
-  font-size: 44 px;
   color: yellow;
 }

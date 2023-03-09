@@ -22,7 +22,7 @@
 [ ] Show shooting damage<br>
 [ ] Show Obstacles healt<br>
 
-[ ] Fix: when a bullet goes outside, scrollbars shown (hint: overflow: hidden)
+[X] Fix: when a bullet goes outside, scrollbars shown (hint: overflow: hidden)
 
 ---
 
