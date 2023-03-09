@@ -1,6 +1,12 @@
 // let bgm = new Audio("./audio/bgm.mp3");
 // bgm.play();
 
+let shooting = new Audio("./audio/pistol.mp3");
+// if (e.key === " ") {
+//   shoot();
+//   shooting.play();
+// }
+
 class Game {
   constructor() {
     this.player = null;
@@ -50,6 +56,7 @@ class Game {
           this.player.positionX + this.player.width,
           this.player.positionY + this.player.height / 2 - 1
         );
+        shooting.play();
         this.bulletsArr.push(myBullet);
         setInterval(() => {
           myBullet.shoot();
@@ -84,14 +91,16 @@ class Game {
         bulletInstance.height + bulletInstance.positionY >
           obstacleInstance.positionY
       ) {
-        //console.log("game over my fren!");
-        // window.location.href = "./gameover.html";
-        obstacleInstance.obstacleElm.remove(); //remove from the dom
-        this.obstaclesArr.splice(obstacleIndex, 1); // remove from the array
         bulletInstance.bulletElm.remove(); //remove from the dom
         this.bulletsArr.splice(bulletIndex, 1); // remove from the array
         this.score.hitScore();
-        localStorage.setItem("maxscore", this.score.scr);
+        obstacleInstance.beingHit();
+        if (obstacleInstance.strength < 0) {
+          obstacleInstance.obstacleElm.remove(); //remove from the dom
+          this.obstaclesArr.splice(obstacleIndex, 1); // remove from the array
+
+          localStorage.setItem("maxscore", this.score.scr);
+        }
       }
     });
   }
@@ -112,8 +121,8 @@ class Game {
 
 class Bullet {
   constructor(plyX, plyY) {
-    this.width = 2;
-    this.height = 2;
+    this.width = 6;
+    this.height = 4;
     this.positionX = plyX;
     this.positionY = plyY;
     this.damage = 10;
@@ -156,12 +165,12 @@ class Bullet {
 
 class Obstacle {
   constructor() {
-    this.width = Math.random() * 10;
-    this.height = Math.random() * 20;
+    this.width = Math.random() * (10 - 3) + 3;
+    this.height = Math.random() * (15 - 3) + 3;
     this.positionY = Math.random() * 90;
     this.positionX = 90;
     this.obstacleElm = null; //will store a dom element
-
+    this.strength = this.width * this.height;
     this.createDomElement();
   }
   createDomElement() {
@@ -183,12 +192,15 @@ class Obstacle {
     this.positionX--;
     this.obstacleElm.style.left = this.positionX + "vw";
   }
+  beingHit() {
+    this.strength -= 20;
+  }
 }
 
 class Player {
   constructor() {
-    this.width = 8;
-    this.height = 12;
+    this.width = 15;
+    this.height = 20;
     this.positionX = 0;
     this.positionY = 45;
     this.playerElm = document.getElementById("player");
