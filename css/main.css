@@ -13,7 +13,7 @@ body {
 
 #player {
   /* background-color: fuchsia; */
-  background-image: url("/img/space.png");
+  background-image: url("../img/space.png");
   position: absolute;
   bottom: 45vh;
   background-size: contain;
@@ -23,14 +23,14 @@ body {
 .obstacle {
   /* background-color: orange; */
   position: absolute;
-  background-image: url("/img/metoor.png");
+  background-image: url("../img/metoor.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 .bullet {
   /* background-color: whitesmoke; */
   position: absolute;
-  background-image: url("/img/fire2.png");
+  background-image: url("../img/fire2.png");
   background-size: contain;
 }
 .score {
