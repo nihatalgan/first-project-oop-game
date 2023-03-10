@@ -18,19 +18,19 @@ Functionality:
 [x] Obstacles coming random size<br>
 [ ] Obstacles coming random speed<br>
 [x] Obstacles deleted from DOM<br>
-[X] Image for player<br>
-[X] Image for obstacles<br>
-[X] Begining page<br>
-[X] Game over page<br>
+[x] Image for player<br>
+[x] Image for obstacles<br>
+[x] Begining page<br>
+[x] Game over page<br>
 [ ] Add music<br>
 [x] Shooting property<br>
-[X] Shooting sound effect<br>
+[x] Shooting sound effect<br>
 [x] Bullet class<br>
 [x] Bullet obstacle collision<br>
 [x] Bullet and obstacle removed from DOM & board when collision<br>
-[X] Obstacles receive multiple hits regarding their size<br>
-[X] Display score in gameover page (localStorage.setItem)<br>
+[x] Obstacles receive multiple hits regarding their size<br>
+[x] Display score in gameover page (localStorage.setItem)<br>
 
 Fix:
-[X] Fix: when a bullet goes outside, scrollbars shown (hint: overflow: hidden)<br>
-[x] images does not appear in gitHub Pages
+[x] When a bullet goes outside, scrollbars shown (hint: overflow: hidden)<br>
+[x] Images does not appear in gitHub Pages
