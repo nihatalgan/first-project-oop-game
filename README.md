@@ -1,10 +1,10 @@
-Description
+Description:<br>
 OOP game built with web technologies (html, css, javascript)
 
-How to play
+How to play:<br>
 Move player with arrow keys and space.
 
-Demo
+Demo:<br>
 https://nihatalgan.github.io/first-project-oop-game/
 
 Functionality:
