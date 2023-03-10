@@ -2,10 +2,6 @@
 // bgm.play();
 
 let shooting = new Audio("./audio/pistol.mp3");
-// if (e.key === " ") {
-//   shoot();
-//   shooting.play();
-// }
 
 class Game {
   constructor() {
